@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bicycleFragment"
+        android:title="Bicicletas"
+        android:icon="@drawable/bicicleta"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/campusFragment"
+        android:title="Sedes"
+        android:icon="@drawable/internacional"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/rentalFragment"
+        android:title="Alquilar"
+        android:icon="@drawable/rentbycicle"
+        android:enabled="true"/>
+
+    <item
+        android:id="@+id/identifyFragment"
+        android:title="Solicitudes"
+        android:icon="@drawable/idcard"
+        android:enabled="true"/>
+</menu>

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.capstone.cikla.R
 import com.capstone.cikla.user.Bicycle
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.item_bicycle.view.*
 
 class RVBicycleAdapter(
         private val bicycleList: List<Bicycle>
@@ -18,14 +20,15 @@ class RVBicycleAdapter(
 
     override fun onBindViewHolder(holder: BicycleViewHolder, position: Int) {
         val bicycle = bicycleList[position]
-        holder.bind(bicycle,position)
+        holder.bind(bicycle)
     }
 
     override fun getItemCount() = bicycleList.size
 
     class BicycleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        fun bind(bicycle: Bicycle, position: Int) {
-
+        fun bind(bicycle: Bicycle) {
+            Picasso.get().load(bicycle.image).into(itemView.imgBi)
+            itemView.tvCode.text = bicycle.code
         }
     }
 

@@ -10,12 +10,15 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_bicycle.view.*
 
 class RVBicycleAdapter(
-        private val bicycleList: List<Bicycle>
+        private val bicycleList: List<Bicycle>,
+        private val onItemClicked: (Bicycle) -> Unit
 ): RecyclerView.Adapter<RVBicycleAdapter.BicycleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BicycleViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        return BicycleViewHolder(layoutInflater.inflate(R.layout.item_bicycle, parent, false))
+        return BicycleViewHolder(layoutInflater.inflate(R.layout.item_bicycle, parent, false)) {
+            onItemClicked(bicycleList[it])
+        }
     }
 
     override fun onBindViewHolder(holder: BicycleViewHolder, position: Int) {
@@ -25,7 +28,15 @@ class RVBicycleAdapter(
 
     override fun getItemCount() = bicycleList.size
 
-    class BicycleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+
+    class BicycleViewHolder(itemView: View, onItemClicked: (Int) -> Unit): RecyclerView.ViewHolder(itemView) {
+
+        init {
+            itemView.setOnClickListener {
+                onItemClicked(adapterPosition)
+            }
+        }
+
         fun bind(bicycle: Bicycle) {
             Picasso.get().load(bicycle.image).into(itemView.imgBi)
             itemView.tvCode.text = bicycle.code

@@ -25,6 +25,8 @@ class LoginActivity: AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
+        viewModel.getUser()
+
         button_identificarme.setOnClickListener {
             viewModel.login(emailCikla.text.toString(), passCikla.text.toString())
         }

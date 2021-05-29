@@ -2,36 +2,67 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     app:cardCornerRadius="10dp">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-
-        <ImageView
-            android:id="@+id/imgBi"
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/bicycle1"/>
-
-        <TextView
-            android:id="@+id/tvCode"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="2dp"
-            android:text="CD-001"
-            android:textColor="@color/black"
-            android:gravity="center"
-            android:textSize="22sp"
-            android:layout_below="@+id/imgBi"/>
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/imgBi"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:layout_gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@color/black">
+
+                <TextView
+                    android:id="@+id/tvDescripcion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="Bicicleta"
+                    android:textColor="@color/cikla"
+                    android:gravity="center"
+                    style="@style/h4"/>
+
+                <TextView
+                    android:id="@+id/tvCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginStart="10dp"
+                    android:text="MatLab 3"
+                    android:textColor="@color/cikla"
+                    android:gravity="center"
+                    style="@style/h5"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+
 
     </RelativeLayout>
 

@@ -11,38 +11,24 @@ import kotlinx.android.synthetic.main.item_bicycle.view.*
 
 class RVBicycleAdapter(
         private val bicycleList: List<Bicycle>,
-        private val onItemClicked: (Bicycle) -> Unit
-): RecyclerView.Adapter<RVBicycleAdapter.BicycleViewHolder>() {
+        private val itemClickListener: ItemClickListener,
+): RecyclerView.Adapter<BicycleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BicycleViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        return BicycleViewHolder(layoutInflater.inflate(R.layout.item_bicycle, parent, false)) {
-            onItemClicked(bicycleList[it])
-        }
+        return BicycleViewHolder(LayoutInflater.from(parent.context), parent)
     }
 
     override fun onBindViewHolder(holder: BicycleViewHolder, position: Int) {
-        val bicycle = bicycleList[position]
-        holder.bind(bicycle)
+        holder.bind(bicycleList[position])
+        holder.itemView.setOnClickListener{
+            itemClickListener.onClickItem(position)
+        }
     }
 
     override fun getItemCount() = bicycleList.size
 
-
-    class BicycleViewHolder(itemView: View, onItemClicked: (Int) -> Unit): RecyclerView.ViewHolder(itemView) {
-
-        init {
-            itemView.setOnClickListener {
-                onItemClicked(adapterPosition)
-            }
-        }
-
-        fun bind(bicycle: Bicycle) {
-            Picasso.get().load(bicycle.image).into(itemView.imgBi)
-            itemView.tvCode.text = bicycle.code
-        }
+    interface  ItemClickListener {
+        fun onClickItem(position: Int)
     }
-
-
 
 }

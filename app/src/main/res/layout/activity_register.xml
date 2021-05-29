@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black">
+    android:background="@color/cikla">
 
 
     <!--<TextView
@@ -31,7 +31,12 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewReg"
@@ -40,8 +45,9 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
-            app:cardCornerRadius="5dp"
+            android:layout_marginBottom="25dp"
             app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -49,387 +55,401 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Usuario"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regUserCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contraseña"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="16dp"
+                    android:hint="Contraseña"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
                     app:hintTextColor="@color/black"
-                    app:passwordToggleEnabled="true"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regPassCikla"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPassword"/>
+                        android:inputType="textPassword" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Correo"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regEmailCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Dni"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regDniCikla"
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+
+
+
+
+                <ImageView
+                    android:id="@+id/imgDni"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"/>
+
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Nombres y Apellidos"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regNombreApellidoCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Direccion"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regDireccionCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Celular"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regCelularCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Telefono"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regTelefonoCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Sexo"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regSexoCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="imagenDni1"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regImg1Cikla"
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
-                    android:hint="imagenDni2"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    android:layout_marginRight="16dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regImg2Cikla"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                    <Button
+                        android:id="@+id/camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Open camera"/>
 
-                </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:id="@+id/gallery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Open gallery"/>
+
+                </LinearLayout>
+
+                <!--  <com.google.android.material.textfield.TextInputLayout
+                      style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="16dp"
+                      android:layout_marginTop="16dp"
+                      android:layout_marginRight="16dp"
+                      android:hint="imagenDni2"
+                      android:textColorHint="@color/black"
+                      app:boxStrokeColor="@color/black"
+                      app:hintTextColor="@color/black">
+
+                      <com.google.android.material.textfield.TextInputEditText
+                          android:id="@+id/regImg2Cikla"
+                          android:maxLines="1"
+                          android:singleLine="true"
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content" />
+
+                  </com.google.android.material.textfield.TextInputLayout>
+
+                  <LinearLayout
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="16dp"
+                      android:layout_marginTop="16dp"
+                      android:layout_marginRight="16dp">
+
+                      <Button
+                          android:id="@+id/imgCameraDni2"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:text="Open camera"/>
+
+                      <Button
+                          android:id="@+id/imgGalleryDni2"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:layout_marginStart="16dp"
+                          android:text="Open gallery"/>
+
+                  </LinearLayout>-->
+
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Fecha de Nacimiento"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regFechaNacCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Id"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regIdCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Fecha de Creacion"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regFechaCreaCikla"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp"
-                    android:hint="Usuario de Creacion"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regUserCreaCikla"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp"
                     android:hint="Estado"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regEstadoCikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+               <!-- <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
                     android:hint="Imagen de Perfil"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regImgPerfilCikla"
+                        android:maxLines="1"
+                        android:singleLine="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
 
-                </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.textfield.TextInputLayout> -->
 
-                <com.google.android.material.textfield.TextInputLayout
+             <!--   <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Fecha de creación 2"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    android:layout_marginRight="16dp">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regFechaCrea2Cikla"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                    <Button
+                        android:id="@+id/imgCameraProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Open camera"/>
 
-                </com.google.android.material.textfield.TextInputLayout>
+                    <Button
+                        android:id="@+id/imgGalleryProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Open gallery"/>
+
+                </LinearLayout>-->
+
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
                     android:layout_marginTop="16dp"
-                    android:hint="Usuario de creación 2"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regUserCrea2Cikla"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="16dp"
                     android:hint="estado 2"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    app:hintTextColor="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regEstado2Cikla"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -438,55 +458,20 @@
                     android:id="@+id/buttonRegister"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/black"
                     android:text="Registrar"
                     android:textColor="@color/white"
-                    android:backgroundTint="@color/black"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView"/>
+                    app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-
-
-                <!--<LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="¿No tienes cuenta?"
-                        android:textColor="@color/black"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Registrate"
-                        android:textColor="@color/cikla"
-                        android:textStyle="bold"
-                        android:layout_marginStart="7dp"/>
-                </LinearLayout>-->
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
-
-
     </ScrollView>
-
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

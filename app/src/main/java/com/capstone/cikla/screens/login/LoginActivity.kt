@@ -2,6 +2,7 @@ package com.capstone.cikla.screens.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -26,25 +27,19 @@ class LoginActivity: AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         viewModel.getUser()
-
-        button_identificarme.setOnClickListener {
-            viewModel.login(emailCikla.text.toString(), passCikla.text.toString())
-        }
-
-        register.setOnClickListener {
-            goToRegister()
-        }
-
         observerViewModel()
+        button_identificarme.setOnClickListener {
+            viewModel.doLogin(emailCikla.text.toString(), passCikla.text.toString())
+            goToNavigation()
+            Toast.makeText(this, "Ingresaste con éxito", Toast.LENGTH_SHORT).show()
+        }
+
+
+        register.setOnClickListener { goToRegister() }
 
     }
 
     fun observerViewModel(){
-        viewModel.userLoadError.observe(this, Observer {
-            if(it){
-                Toast.makeText(this,"Verifique sus credenciales", Toast.LENGTH_SHORT).show()
-            }
-        })
 
         viewModel.userServiceResponse.observe(this, Observer {
             if (it){

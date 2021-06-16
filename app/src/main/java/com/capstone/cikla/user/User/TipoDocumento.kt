@@ -1,4 +1,4 @@
-package com.capstone.cikla.user
+package com.capstone.cikla.user.User
 
 import com.google.gson.annotations.SerializedName
 

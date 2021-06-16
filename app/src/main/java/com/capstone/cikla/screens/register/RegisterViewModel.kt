@@ -1,16 +1,12 @@
  package com.capstone.cikla.screens.register
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.capstone.cikla.network.ApiInterface
 import com.capstone.cikla.network.ApiService
 import com.capstone.cikla.network.ErrorResponse
 import com.capstone.cikla.network.UserResponse
-import com.capstone.cikla.user.Persona
-import com.capstone.cikla.user.User
-import com.capstone.cikla.utils.StringExtensions
 import com.capstone.cikla.utils.isValidEmail
 import com.capstone.cikla.utils.isValidPassword
 import com.google.firebase.auth.FirebaseAuth
@@ -30,6 +26,7 @@ import retrofit2.Response
     val userRegisterServiceResponse = MutableLiveData<Boolean>()
     val userLoadError = MutableLiveData<Boolean>()
      val api = ApiService().getRetrofit()
+     val userLiveData = MutableLiveData<UserResponse>()
 
 
     fun register(email:String, pass:String){
@@ -95,7 +92,7 @@ import retrofit2.Response
             override fun onResponse(call: Call<UserResponse>, response: Response<UserResponse>) {
                 val users = response.body()
                 //StringExtensions.gestionarReponse(response.isSuccessful, users!!.message, response.errorBody()!!)
-                if (response.isSuccessful) {
+                if (response.code() == 200) {
                     Log.e("User Ingresado", users!!.message)
                 } else {
                     val gson = Gson()

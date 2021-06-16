@@ -5,20 +5,15 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.capstone.cikla.network.*
-import com.capstone.cikla.user.User
+import com.capstone.cikla.user.User.User
 import com.capstone.cikla.utils.isValidEmail
 import com.capstone.cikla.utils.isValidPassword
 import com.google.firebase.auth.FirebaseAuth
-import com.google.gson.Gson
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class LoginViewModel: ViewModel() {
 
@@ -27,8 +22,9 @@ class LoginViewModel: ViewModel() {
     val userLoadError = MutableLiveData<Boolean>() //notificar una accion o error
     val userServiceResponse = MutableLiveData<Boolean>()
     val loading = MutableLiveData<Boolean>()
-    private val userListString = MutableLiveData<List<User>>()
+    private val userListString = MutableLiveData<UserDataResponse>()
     private val api = ApiService().getRetrofit()
+    val userLiveData = MutableLiveData<LoginResponse>()
 
     fun login(email:String, password: String){
         if (email.isValidEmail() && password.isValidPassword()) {
@@ -52,13 +48,11 @@ class LoginViewModel: ViewModel() {
 
         result.enqueue(object: retrofit2.Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                userServiceResponse.value = true
-                if (response.isSuccessful) {
-                    response.body()
-                    Log.e("User Ingresado", "Login correcto")
-
-
-                } else {
+                val responseCall = response.body()
+                userLiveData.postValue(responseCall)
+                Log.e("User Ingresado", "Login correcto")
+                Log.e("Login", responseCall.toString())
+                 /*if (responseCall!!.isEmpty()) {
                     userServiceResponse.value = false
                     val gson = Gson()
                     val message: ErrorResponse = gson.fromJson(response.errorBody()!!.charStream(), ErrorResponse::class.java)
@@ -67,7 +61,7 @@ class LoginViewModel: ViewModel() {
                     } else {
                         Log.e("Mensaje de error vacío", "No error")
                     }
-                }
+                }*/
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -80,16 +74,23 @@ class LoginViewModel: ViewModel() {
 
     fun getUser() {
         val service: ApiInterface = api.create(ApiInterface::class.java)
-        val result: Call<List<User>> = service.getUsers()
-        result.enqueue(object : retrofit2.Callback<List<User>> {
-            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+        val result: Call<UserDataResponse> = service.getUsers()
+        result.enqueue(object : retrofit2.Callback<UserDataResponse> {
+
+            override fun onResponse(
+                call: Call<UserDataResponse>,
+                response: Response<UserDataResponse>
+            ) {
                 val users = response.body()
                 userListString.postValue(users)
+                Log.e("Usuarios", users.toString())
+                Log.e("Success", "Entró al call")
             }
 
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
-                Log.e("Unsucces", "No entró al call")
+            override fun onFailure(call: Call<UserDataResponse>, t: Throwable) {
+                Log.e("Servicio Usuarios", "Error servicio de usuarios")
             }
+
 
         })
     }

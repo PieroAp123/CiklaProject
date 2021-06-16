@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.CampusFragment">
+    tools:context=".fragments.sedeFragment.CampusFragment"
+    android:background="@color/white2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSede"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Fragment Campus"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:textSize="30sp"/>
+        tools:listitem="@layout/item_sedes"
+        tools:itemCount="3"/>
 
 </FrameLayout>

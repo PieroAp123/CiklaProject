@@ -7,6 +7,8 @@ data class ComponenteBicycle (
         val id: Int,
         @SerializedName("cantidad")
         val cantidad: Float,
+        @SerializedName("precioCompoenente")
+        val precio: Float,
         @SerializedName("componente")
         val componente: Componente,
         @SerializedName("fechaCreacion")

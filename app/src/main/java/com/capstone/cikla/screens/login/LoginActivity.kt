@@ -3,6 +3,7 @@ package com.capstone.cikla.screens.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -27,27 +28,18 @@ class LoginActivity: AppCompatActivity() {
         viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         viewModel.getUser()
-        observerViewModel()
+        this.observerViewModel()
         button_identificarme.setOnClickListener {
             viewModel.doLogin(emailCikla.text.toString(), passCikla.text.toString())
+                Toast.makeText(this, "Ingresaste con éxito", Toast.LENGTH_SHORT).show()
             goToNavigation()
-            Toast.makeText(this, "Ingresaste con éxito", Toast.LENGTH_SHORT).show()
         }
-
-
         register.setOnClickListener { goToRegister() }
-
     }
 
     fun observerViewModel(){
-
-        viewModel.userServiceResponse.observe(this, Observer {
-            if (it){
-                Toast.makeText(this,"Ingresaste con éxito", Toast.LENGTH_SHORT).show()
-                goToNavigation()
-            } else{
-                Toast.makeText(this,"Verifique sus credenciales2", Toast.LENGTH_SHORT).show()
-            }
+        viewModel.userLiveData.observe(this,  {
+            goToNavigation()
         })
     }
 
@@ -68,8 +60,9 @@ class LoginActivity: AppCompatActivity() {
     }
 
     private fun goToNavigation() {
-            val intent = Intent(this, NavigationActivity::class.java)
-            startActivity(intent)
+        val intent = Intent(this, NavigationActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun goToRegister() {

@@ -1,7 +1,6 @@
-package com.capstone.cikla.user
+package com.capstone.cikla.user.User
 
 import com.google.gson.annotations.SerializedName
-import java.time.LocalDate
 
 data class User (
         @SerializedName("id")

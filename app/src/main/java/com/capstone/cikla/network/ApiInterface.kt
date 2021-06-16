@@ -1,9 +1,7 @@
 package com.capstone.cikla.network
 
-import com.capstone.cikla.user.Bicycle
 import com.capstone.cikla.user.Bicycles
-import com.capstone.cikla.user.User
-import io.reactivex.Single
+import com.capstone.cikla.user.User.User
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.Body
@@ -19,9 +17,15 @@ interface ApiInterface {
     fun newUser(@Body params: RequestBody): Call<UserResponse>
 
     @GET("usuarios")
-    fun getUsers(): Call<List<User>>
+    fun getUsers(): Call<UserDataResponse>
 
     @GET("bicicletas")
     fun getBicycle(): Call<Bicycles>
+
+    @GET("sedes")
+    fun getSedes(): Call<SedeResponse>
+
+    @GET("plantarifarios")
+    fun getPlanTarifario(): Call<PlanTarifarioResponse>
 
 }

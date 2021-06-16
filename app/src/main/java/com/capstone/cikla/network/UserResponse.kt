@@ -1,14 +1,13 @@
 package com.capstone.cikla.network
 
-import com.capstone.cikla.user.User
+import com.capstone.cikla.user.User.User
 import com.google.gson.annotations.SerializedName
 
 
 data class UserResponse(
-
-        @SerializedName("usuario")
+    @SerializedName("usuario") 
         val users: List<User>,
 
-        @SerializedName("mensaje")
+    @SerializedName("mensaje")
         val message: String
 )

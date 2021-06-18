@@ -4,44 +4,44 @@ import com.google.gson.annotations.SerializedName
 
 data class Persona (
     @SerializedName("id")
-        val id: Int,
+    val id: Int,
 
     @SerializedName("numeroDocumento")
-        val numberDocument: String,
+    val numberDocument: String,
 
     @SerializedName("nombresApellidos")
-        val nameLastName: String,
+    val nameLastName: String,
 
     @SerializedName("direccion")
-        val direction: String,
+    val direction: String,
 
     @SerializedName("celular")
-        val cellphoneNumber: String,
+    val cellphoneNumber: String,
 
     @SerializedName("telefono")
-        val phoneNumber: String,
+    val phoneNumber: String,
 
     @SerializedName("sexo")
-        val sexOrientation: String,
+    val sexOrientation: String,
 
     @SerializedName("imagenDni1")
-        val imageDni1: String,
+    val imageDni1: String,
 
     @SerializedName("imagenDni2")
-        val imageDni2: String,
+    val imageDni2: String,
 
     @SerializedName("fechaNacimiento")
-        val dateBirth: String,
+    val dateBirth: String,
 
     @SerializedName("tipoDocumento")
-        val typeDocument: TipoDocumento,
+    val typeDocument: TipoDocumento,
 
     @SerializedName("fechaCreacion")
-        val dateCreation: String,
+    val dateCreation: String,
 
     @SerializedName("usuarioCreacion")
-        val userCreation: Int,
+    val userCreation: Int,
 
     @SerializedName("estado")
-        val status: String
+    val status: String
 )

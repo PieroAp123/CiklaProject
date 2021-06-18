@@ -31,15 +31,21 @@ class LoginActivity: AppCompatActivity() {
         this.observerViewModel()
         button_identificarme.setOnClickListener {
             viewModel.doLogin(emailCikla.text.toString(), passCikla.text.toString())
-                Toast.makeText(this, "Ingresaste con éxito", Toast.LENGTH_SHORT).show()
-            goToNavigation()
+
+            //goToNavigation()
         }
         register.setOnClickListener { goToRegister() }
     }
 
     fun observerViewModel(){
         viewModel.userLiveData.observe(this,  {
-            goToNavigation()
+            if (it != null) {
+                Toast.makeText(this, "Ingresaste con éxito", Toast.LENGTH_SHORT).show()
+                goToNavigation()
+            } else {
+                Toast.makeText(this, "Usuario inexistente", Toast.LENGTH_SHORT).show()
+            }
+
         })
     }
 
@@ -61,8 +67,8 @@ class LoginActivity: AppCompatActivity() {
 
     private fun goToNavigation() {
         val intent = Intent(this, NavigationActivity::class.java)
-        startActivity(intent)
         finish()
+        startActivity(intent)
     }
 
     private fun goToRegister() {

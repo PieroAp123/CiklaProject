@@ -52,21 +52,22 @@ class LoginViewModel: ViewModel() {
                 userLiveData.postValue(responseCall)
                 Log.e("User Ingresado", "Login correcto")
                 Log.e("Login", responseCall.toString())
-                 /*if (responseCall!!.isEmpty()) {
-                    userServiceResponse.value = false
-                    val gson = Gson()
-                    val message: ErrorResponse = gson.fromJson(response.errorBody()!!.charStream(), ErrorResponse::class.java)
-                    if(message.error != null) {
-                        Log.e("Error register user", message.error)
-                    } else {
-                        Log.e("Mensaje de error vacío", "No error")
-                    }
-                }*/
+                /*if (responseCall!!.isEmpty()) {
+                   userServiceResponse.value = false
+                   val gson = Gson()
+                   val message: ErrorResponse = gson.fromJson(response.errorBody()!!.charStream(), ErrorResponse::class.java)
+                   if(message.error != null) {
+                       Log.e("Error register user", message.error)
+                   } else {
+                       Log.e("Mensaje de error vacío", "No error")
+                   }
+               }*/
             }
 
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.e("Servicio Login", "Error servicio de Login")
+                Log.e("Error Login", "Usuario no logeado")
             }
+
 
         })
 

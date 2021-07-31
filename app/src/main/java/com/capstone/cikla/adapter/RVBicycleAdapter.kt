@@ -1,13 +1,10 @@
 package com.capstone.cikla.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.capstone.cikla.R
 import com.capstone.cikla.user.Bicycle
 import com.capstone.cikla.user.DataBicycle.ComponenteBicycle
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_bicycle.view.*
 
 class RVBicycleAdapter(
@@ -31,6 +28,7 @@ class RVBicycleAdapter(
         holder.itemView.setOnClickListener{
             OnItemClick(codeBicycle, nameCategory, imageBicycle, sedeBicycle, colorBicycle, bicycleComponent, codeComponent)
         }
+
     }
 
     override fun getItemCount() = bicycleList.size

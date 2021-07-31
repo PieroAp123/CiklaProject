@@ -43,17 +43,21 @@ class RegisterActivity: AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
 
-        imageG = findViewById(R.id.imgDni)
-        textImgDni = findViewById(R.id.regImg1Cikla)
-        galleryClick()
+        //imageG = findViewById(R.id.imgDni)
+        //textImgDni = findViewById(R.id.regImg1Cikla)
+        //galleryClick()
         buttonRegister.setOnClickListener {
             viewModel.saveUser(regUserCikla.text.toString(), regPassCikla.text.toString(), regEmailCikla.text.toString(), regDniCikla.text.toString(), regNombreApellidoCikla.text.toString(),
-                    regDireccionCikla.text.toString(), regCelularCikla.text.toString(), regTelefonoCikla.text.toString(), regSexoCikla.text.toString(), textImgDni.text.toString(),
-                    regFechaNacCikla.text.toString(), regIdCikla.text.toString().toInt(), regEstadoCikla.text.toString(), regEstado2Cikla.text.toString())
+                regDireccionCikla.text.toString(), regCelularCikla.text.toString(), regTelefonoCikla.text.toString(), regSexoCikla.text.toString(),
+                regFechaNacCikla.text.toString(), regIdCikla.text.toString().toInt())
 
         }
 
-
+        //userBack.setOnClickListener { onBackPressed() }
+        txtGoLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 
@@ -77,7 +81,7 @@ class RegisterActivity: AppCompatActivity() {
         }
     }
 
-    private fun cameraClick() {
+    /*private fun cameraClick() {
         camera.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
@@ -91,9 +95,9 @@ class RegisterActivity: AppCompatActivity() {
             }
         }
 
-    }
+    }*/
 
-    private fun galleryClick() {
+    /*private fun galleryClick() {
         gallery.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED || checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
@@ -107,7 +111,7 @@ class RegisterActivity: AppCompatActivity() {
             }
         }
 
-    }
+    }*/
 
 
 
@@ -137,7 +141,7 @@ class RegisterActivity: AppCompatActivity() {
         supportActionBar?.hide()
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+   /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (resultCode == Activity.RESULT_OK && requestCode == REQUEST_GALLERY) {
@@ -149,7 +153,7 @@ class RegisterActivity: AppCompatActivity() {
             imgDni.setImageURI(pick)
         }
 
-    }
+    }*/
 
     private fun uri(data: Intent?, textImage: TextView): Uri? {
         val uri = data?.data

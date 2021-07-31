@@ -1,5 +1,6 @@
 package com.capstone.cikla.adapter.adapterComponent
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
@@ -13,9 +14,10 @@ class BicycleComponentViewHolder(inflater: LayoutInflater, parent: ViewGroup):
     private var componentBicycle: TextView = itemView.findViewById(R.id.textNameComponent)
     //private var precioComponent: TextView = itemView.findViewById(R.id.textPrecio)
 
+    @SuppressLint("SetTextI18n")
     fun bind(bicycleComponent: ComponenteBicycle) {
         //precioComponent.text = bicycleComponent.precio.toString()
         //cantidadComponent.text = bicycleComponent.cantidad.toString()
-        componentBicycle.text = bicycleComponent.componente.description
+        componentBicycle.text = "• " + bicycleComponent.componente.description
     }
 }

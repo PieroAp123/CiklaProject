@@ -30,6 +30,7 @@
         app:layout_constraintTop_toTopOf="parent"/>-->
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp"
@@ -38,13 +39,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <androidx.cardview.widget.CardView
             android:id="@+id/cardViewReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="25dp"
             android:layout_marginRight="25dp"
+            android:layout_marginTop="25dp"
             android:layout_marginBottom="25dp"
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="5dp"
@@ -131,24 +133,13 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/regDniCikla"
-                        android:maxLines="1"
-                        android:singleLine="true"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:singleLine="true" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-
-
-
-
-                <ImageView
-                    android:id="@+id/imgDni"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="16dp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -245,48 +236,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="16dp"
-                    android:hint="imagenDni1"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regImg1Cikla"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="16dp">
-
-                    <Button
-                        android:id="@+id/camera"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Open camera"/>
-
-                    <Button
-                        android:id="@+id/gallery"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="Open gallery"/>
-
-                </LinearLayout>
 
                 <!--  <com.google.android.material.textfield.TextInputLayout
                       style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -371,26 +320,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="16dp"
-                    android:hint="Estado"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regEstadoCikla"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-               <!-- <com.google.android.material.textfield.TextInputLayout
+                <!-- <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -411,7 +341,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout> -->
 
-             <!--   <LinearLayout
+                <!--   <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
@@ -434,26 +364,6 @@
                 </LinearLayout>-->
 
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginRight="16dp"
-                    android:hint="estado 2"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/black"
-                    app:hintTextColor="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/regEstado2Cikla"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
                 <Button
                     android:id="@+id/buttonRegister"
                     android:layout_width="match_parent"
@@ -461,7 +371,6 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
                     android:backgroundTint="@color/black"
                     android:text="Registrar"
                     android:textColor="@color/white"
@@ -469,6 +378,28 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="¿Ya tienes cuenta?"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/txtGoLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Inicia Sesión"
+                        android:layout_marginStart="5dp"
+                        android:textColor="@color/cikla"/>
+
+                </LinearLayout>
 
             </LinearLayout>
 

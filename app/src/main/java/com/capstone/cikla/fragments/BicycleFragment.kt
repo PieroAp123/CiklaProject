@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
@@ -36,17 +38,6 @@ class BicycleFragment : Fragment() {
 
     private lateinit var viewModel: BicycleViewModel
 
-    private fun getBicycle() {
-
-        viewModel.bicycleLiveData.observe(viewLifecycleOwner, {
-            gridCovid.apply {
-                adapter = RVBicycleAdapter(it, ::onItemClick)
-                //gridCovid.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-                gridCovid.layoutManager = GridLayoutManager(requireContext(),2, GridLayoutManager.VERTICAL, false)
-            }
-        })
-        viewModel.getBicycle()
-    }
 
     @SuppressLint("SetTextI18n")
     fun onItemClick(description: String, category: String, imageBicycle: String, sede: String, color: String, bicycleComponent: List<ComponenteBicycle>, codeComponent: String) {
@@ -75,16 +66,15 @@ class BicycleFragment : Fragment() {
 
         dialogBuild.setView(viewDialog)
             .setView(viewDialog)
+            .setPositiveButton("Agregar") { _, _ -> Toast.makeText(requireContext(), "Bicicleta Agregada", Toast.LENGTH_SHORT).show()}
             .show()
 
-        viewDialog.setButtonFLoating.setOnClickListener {
-            prefs.saveCode(codeComponent)
+           /* prefs.saveCode(codeComponent)
             prefs.saveNameBicycle(description)
             prefs.saveImage(imageBicycle)
             prefs.saveNameCategory(category)
             prefs.saveNameColor(color)
-            prefs.saveSede(sede)
-        }
+            prefs.saveSede(sede)*/
 
     }
 
@@ -95,7 +85,20 @@ class BicycleFragment : Fragment() {
         val view: View = inflater.inflate(R.layout.fragment_bicycle, container, false)
         viewModel = ViewModelProvider(this).get(BicycleViewModel::class.java)
         getBicycle()
+
         return view
+    }
+
+    private fun getBicycle() {
+
+        viewModel.bicycleLiveData.observe(viewLifecycleOwner, {
+            gridCovid.apply {
+                adapter = RVBicycleAdapter(it, ::onItemClick)
+                //gridCovid.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                gridCovid.layoutManager = GridLayoutManager(requireContext(),2, GridLayoutManager.VERTICAL, false)
+            }
+        })
+        viewModel.getBicycle()
     }
 
 

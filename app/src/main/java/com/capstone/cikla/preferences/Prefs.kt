@@ -18,6 +18,10 @@ class Prefs(val context: Context) {
         storage.edit().putString(SHARED_BICYCLE_CATEGORY, name).apply()
     }
 
+    fun saveBicycles(bicycles: List<String>) {
+        storage.edit()
+    }
+
     fun saveNameColor(nameColor: String) {
         storage.edit().putString(SHARED_BICYCLE_COLOR, nameColor).apply()
     }

@@ -52,7 +52,8 @@ import retrofit2.Response
             }
     }
 
-    fun saveUser(user: String, pass: String, email: String, numberDocument: String, nameLastName: String, direction: String, cellphoneNumber:String, phoneNumber:String,  sexOrientation: String, imageDni1: String, dateBirth: String, idDocument: Int,  statusP: String, status: String) {
+    fun saveUser(user: String, pass: String, email: String, numberDocument: String, nameLastName: String, direction: String, cellphoneNumber:String,
+                 phoneNumber:String,  sexOrientation: String,  dateBirth: String, idDocument: Int) {
 
         val paramObject = JSONObject()
         paramObject.put("usuario", user)
@@ -67,7 +68,7 @@ import retrofit2.Response
         personaObject.put("celular", cellphoneNumber)
         personaObject.put("telefono", phoneNumber)
         personaObject.put("sexo", sexOrientation)
-        personaObject.put("imagenDni1", imageDni1)
+        personaObject.put("imagenDni1", "")
         personaObject.put("imagenDni2", "")
         personaObject.put("fechaNacimiento", dateBirth)
 
@@ -76,11 +77,11 @@ import retrofit2.Response
         personaObject.put("tipoDocumento", typeDocumentObject)
         personaObject.put("fechaCreacion", "")
         personaObject.put("usuarioCreacion", "")
-        personaObject.put("estado", statusP)
+        personaObject.put("estado", "")
         paramObject.put("imagenPerfil", "")
         paramObject.put("fechaCreacion", "")
         paramObject.put("usuarioCreacion", "")
-        paramObject.put("estado", status)
+        paramObject.put("estado", "")
 
         val params = paramObject.toString()
                 .toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())

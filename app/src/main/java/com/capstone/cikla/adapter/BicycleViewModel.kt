@@ -25,14 +25,13 @@ class BicycleViewModel: ViewModel() {
             override fun onResponse(call: Call<Bicycles>, response: Response<Bicycles>) {
                 val bicicletas = response.body()?.bicicletas
                 Log.e("bicicletas", bicicletas.toString())
+
                 bicycleLiveData.postValue(bicicletas)
             }
 
             override fun onFailure(call: Call<Bicycles>, t: Throwable) {
                 Log.e("Fail", "No hay bicicletas")
             }
-
-
         })
     }
 

@@ -19,7 +19,7 @@
             tools:ignore="UselessParent">
 
             <ImageView
-                android:id="@+id/imgBi"
+                android:id="@+id/imagenRentalBicicleta"
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="120dp"
@@ -33,7 +33,7 @@
                 android:background="@color/black">
 
                 <TextView
-                    android:id="@+id/tvDescripcion"
+                    android:id="@+id/tvRentalDescripcion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -44,7 +44,7 @@
                     android:gravity="center"/>
 
                 <TextView
-                    android:id="@+id/tvCode"
+                    android:id="@+id/tvRentalCode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="2dp"
@@ -52,6 +52,28 @@
                     android:text="MatLab 3"
                     android:textColor="@color/cikla"
                     android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tvRentalSede"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginStart="10dp"
+                    android:text="MatLab 3"
+                    android:textColor="@color/cikla"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/tvRentalTalla"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="2dp"
+                    android:layout_marginStart="10dp"
+                    android:text="MatLab 3"
+                    android:textColor="@color/cikla"
+                    android:gravity="center"/>
+
+
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
